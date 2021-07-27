@@ -12,6 +12,7 @@
 #include "Renderer.h"
 #include "DrawTask.h"
 #include "Logger.h"
+#include "Math.h"
 
 namespace T3D 
 {
@@ -41,9 +42,47 @@ namespace T3D
 	 * \param 
 	 * \note This isn't necessary. It could be inlined into the constructor.
 	 */
+
+	Matrix3x3 DrawTask::scale(float xS, float yS) {
+		return Matrix3x3(xS, 0, 0,
+						 0, yS, 0,
+						 0, 0, 1);
+	}
+
+	Matrix3x3 DrawTask::translate(int xT, int yT) {
+		return Matrix3x3(1, 0, xT,
+						 0, 1, yT,
+						 0, 0, 1);
+	}
+
+	Matrix3x3 DrawTask::rotate(float rad) {
+		return Matrix3x3(cos(rad), -sin(rad), 0,
+						 sin(rad), cos(rad), 0,
+						 0, 0, 1);
+	}
+
 	void DrawTask::init	(){		
 		drawArea->clear(Colour(255,255,255,255));
-		drawDDALine(100,100,200,200,Colour(0,0,0,255));
+		//drawDDALine(100,100,200,200,Colour(0,0,0,255));
+		//512, 320
+		points[0] = Vector3(512, 295, 1);
+		points[1] = Vector3(537, 345, 1);
+		points[2] = Vector3(487, 345, 1);
+		int xT = 1;
+		int yT = 1;
+		float xS = 1.01;
+		float yS = 1.01;
+		float theta = Math::DEG2RAD;
+		//translate = 
+		//scale = 
+		//rotate = 
+		T1 = Matrix3x3(1, 0, -512,
+					   0, 1, -320,
+					   0, 0, 1);
+		T2 = Matrix3x3(1, 0, 512,
+					   0, 1, 320,
+					   0, 0, 1);
+
 	}
 
 	/*
@@ -70,7 +109,8 @@ namespace T3D
 			{
 				for (int x = x1; x < x2; x++)
 				{
-					drawArea->plotPixel(x, int(y), c);
+					//drawArea->plotPixel(x, int(y), c);
+					pushPixel(x, int(y), c);
 					y += dY;
 				}
 			}
@@ -78,7 +118,8 @@ namespace T3D
 			{
 				for (int x = x1; x > x2; x--)
 				{
-					drawArea->plotPixel(x, int(y), c);
+					//drawArea->plotPixel(x, int(y), c);
+					pushPixel(x, int(y), c);
 					y -= dY;
 				}
 			}
@@ -91,7 +132,8 @@ namespace T3D
 			{
 				for (int y = y1; y < y2; y++)
 				{
-					drawArea->plotPixel(int(x), y, c);
+					//drawArea->plotPixel(int(x), y, c);
+					pushPixel(int(x), y, c);
 					x += dX;
 				}
 			}
@@ -99,7 +141,8 @@ namespace T3D
 			{
 				for (int y = y1; y > y2; y--)
 				{
-					drawArea->plotPixel(int(x), y, c);
+					//drawArea->plotPixel(int(x), y, c);
+					pushPixel(int(x), y, c);
 					x -= dX;
 				}
 			}
@@ -162,7 +205,7 @@ namespace T3D
 				}
 			}
 		}
-		/*else
+		else
 		{
 			float dX = deltay / deltax;
 
@@ -182,7 +225,7 @@ namespace T3D
 					x -= dX;
 				}
 			}
-		}*/
+		}
 	}
 
 
@@ -211,31 +254,44 @@ namespace T3D
 		drawArea->clear(Colour(0, 0, 0, 0));
 
 		/*// Corners lines
-		drawBresLine(0, 639, 512, 320, Colour(255, 255, 0, 255));
-		drawBresLine(1023, 639, 512, 320, Colour(255, 255, 0, 255));
-		drawBresLine(0, 0, 512, 320, Colour(255, 255, 0, 255));
-		drawBresLine(1023, 0, 512, 320, Colour(255, 255, 0, 255));
+		drawDDALine(0, 639, 512, 320, Colour(255, 255, 0, 255));
+		drawDDALine(1023, 639, 512, 320, Colour(255, 255, 0, 255));
+		drawDDALine(0, 0, 512, 320, Colour(255, 255, 0, 255));
+		drawDDALine(1023, 0, 512, 320, Colour(255, 255, 0, 255));
 		// Vertical lines
-		drawBresLine(512, 639, 512, 320, Colour(0, 255, 0, 255));
-		drawBresLine(512, 0, 512, 320, Colour(0, 255, 0, 255));
+		drawDDALine(512, 639, 512, 320, Colour(0, 255, 0, 255));
+		drawDDALine(512, 0, 512, 320, Colour(0, 255, 0, 255));
 		// Horizontal lines
-		drawBresLine(0, 320, 512, 320, Colour(0, 0, 255, 255));
-		drawBresLine(1023, 320, 512, 320, Colour(0, 0, 255, 255));
+		drawDDALine(0, 320, 512, 320, Colour(0, 0, 255, 255));
+		drawDDALine(1023, 320, 512, 320, Colour(0, 0, 255, 255));
 		// Inbetween lines
-		drawBresLine(0, 480, 512, 320, Colour(255, 0, 0, 255));
-		drawBresLine(0, 160, 512, 320, Colour(255, 0, 0, 255));
-		drawBresLine(256, 639, 512, 320, Colour(255, 0, 0, 255));
-		drawBresLine(256, 0, 512, 320, Colour(255, 0, 0, 255));
-		drawBresLine(1023, 480, 512, 320, Colour(255, 0, 0, 255));
-		drawBresLine(1023, 160, 512, 320, Colour(255, 0, 0, 255));
-		drawBresLine(768, 639, 512, 320, Colour(255, 0, 0, 255));
-		drawBresLine(768, 0, 512, 320, Colour(255, 0, 0, 255));*/
+		drawDDALine(0, 480, 512, 320, Colour(255, 0, 0, 255));
+		drawDDALine(0, 160, 512, 320, Colour(255, 0, 0, 255));
+		drawDDALine(256, 639, 512, 320, Colour(255, 0, 0, 255));
+		drawDDALine(256, 0, 512, 320, Colour(255, 0, 0, 255));
+		drawDDALine(1023, 480, 512, 320, Colour(255, 0, 0, 255));
+		drawDDALine(1023, 160, 512, 320, Colour(255, 0, 0, 255));
+		drawDDALine(768, 639, 512, 320, Colour(255, 0, 0, 255));
+		drawDDALine(768, 0, 512, 320, Colour(255, 0, 0, 255));*/
 
-		drawCircle(512, 320, 300, Colour(255, 255, 0, 255));
+		for (int i = 0; i < 3; i++)
+		{
+			drawDDALine(points[i].x, points[i].y, points[(i + 1) % 3].x, points[(i + 1) % 3].y, Colour(255, 255, 0, 255));
+		}
+
+		for (int i = 0; i < 3; i++)
+		{
+			//points[i] = translate * points[i];
+			//points[i] = scale * points[i];
+			//points[i] = T2 * scale(1.01, 1.01) * T1 * points[i];
+			points[i] = T2 * rotate(Math::DEG2RAD) * T1 * points[i];
+		}
+
+		//drawCircle(512, 320, 300, Colour(255, 255, 0, 255));
 
 		// @BoundsCheck- requires using pushPixel
 		// Plots pixels made to the drawArea this frame, clearing the pixel queue.
-		// flushPixelQueue();
+		flushPixelQueue();
 		app->getRenderer()->reloadTexture(drawArea);
 	}
 

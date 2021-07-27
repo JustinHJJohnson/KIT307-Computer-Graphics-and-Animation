@@ -15,8 +15,10 @@
 #include "T3DApplication.h"
 #include "Renderer.h"
 #include "Texture.h"
+#include "Matrix3x3.h"
+#include "Vector3.h"
 
-namespace T3D 
+namespace T3D
 {
 	//! \brief Task subclass, used for implementing 2D drawing routines. 
 	class DrawTask :
@@ -24,7 +26,7 @@ namespace T3D
 	{
 	public:
 		//! \brief Creates a DrawTask that draws onto a Texture every frame.
-		DrawTask(T3DApplication *app, Texture* tex);
+		DrawTask(T3DApplication* app, Texture* tex);
 
 		//! \brief Destroy DrawTask (trivially). 
 		~DrawTask(void) = default;
@@ -45,7 +47,17 @@ namespace T3D
 		virtual void update(float dt);
 
 	private:
-		Texture *drawArea;
+		Texture* drawArea;
+		Vector3 points[3];
+		//Matrix3x3 translate;
+		//Matrix3x3 scale;
+		//Matrix3x3 rotate;
+		Matrix3x3 T1;
+		Matrix3x3 T2;
+
+		inline Matrix3x3 scale(float xS, float yS);
+		inline Matrix3x3 translate(int xT, int yT);
+		inline Matrix3x3 rotate(float rad);
 
 		//! \brief Add a pixel to be displayed this frame to the PixelPlotQueue.
 		void pushPixel(int x, int y, Colour colour);
@@ -64,6 +76,5 @@ namespace T3D
 		//! \brief One frames worth of pixels to blit onto the drawArea
 		std::vector<Pixel> pixelPlotQueue;
 	};
-
 }
 
