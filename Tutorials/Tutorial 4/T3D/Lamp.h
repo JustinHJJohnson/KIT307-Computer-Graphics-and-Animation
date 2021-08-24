@@ -11,6 +11,7 @@ namespace T3D {
 		GameObject* base;
 		GameObject* arm1;
 		GameObject* arm2;
+		GameObject* shade;
 		GameObject* baseJoint;
 		GameObject* elbowJoint;
 		GameObject* shadeJoint;

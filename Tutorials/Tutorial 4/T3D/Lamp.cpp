@@ -60,11 +60,22 @@ namespace T3D {
 		armsp.addTransform(t);
 		armsp.addTransform(t);
 
-		/*arm1 = new GameObject(app);
-		arm1->setMesh(new Sweep(armProfile, armsp, false));
-		arm1->getTransform()->setLocalPosition(Vector3(0, 0.2, 0)); // not correctly positioned yet
-		arm1->getTransform()->setParent(base->getTransform()); // not correct attachment yet
-		arm1->getTransform()->name = "Arm1";*/
+		std::vector<Vector3> shadeProfile;
+		shadeProfile.push_back(Vector3(0, -0.5, 0) * 0.08);
+		shadeProfile.push_back(Vector3(0.5, -0.4, 0) * 0.08);
+		shadeProfile.push_back(Vector3(0.6, 0.4, 0) * 0.08);
+		shadeProfile.push_back(Vector3(1, 2, 0) * 0.08);
+		shadeProfile.push_back(Vector3(1.5, 2.5, 0) * 0.08);
+		shadeProfile.push_back(Vector3(1.5, 2.5, 0) * 0.08);
+		shadeProfile.push_back(Vector3(1.45, 2.6, 0) * 0.08);
+		shadeProfile.push_back(Vector3(1.45, 2.6, 0) * 0.08);
+		shadeProfile.push_back(Vector3(0.9, 2.1, 0) * 0.08);
+		shadeProfile.push_back(Vector3(0.5, 0.35, 0) * 0.08);
+		shadeProfile.push_back(Vector3(0, 0.4, 0) * 0.08);
+
+		SweepPath shadesp;
+
+		shadesp.makeCirclePath(0, 100);
 
 		baseJoint = new GameObject(app);
 		baseJoint->getTransform()->setParent(base->getTransform());
@@ -92,5 +103,11 @@ namespace T3D {
 		arm2->getTransform()->setLocalPosition(Vector3(0, 0.1, 0));
 		arm2->getTransform()->setParent(elbowJoint->getTransform());
 		arm2->getTransform()->name = "Arm2";
+		
+		shade = new GameObject(app);
+		shade->setMesh(new Sweep(shadeProfile, shadesp, false));
+		shade->getTransform()->setLocalPosition(Vector3(0, 0, 0));
+		shade->getTransform()->setParent(shadeJoint->getTransform());
+		shade->getTransform()->name = "Shade";
 	}
 }
