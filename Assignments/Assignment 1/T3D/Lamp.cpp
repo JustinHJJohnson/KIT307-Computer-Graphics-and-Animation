@@ -105,7 +105,7 @@ namespace T3D {
 		arm2->getTransform()->name = "Arm2";
 		
 		shade = new GameObject(app);
-		shade->setMesh(new Sweep(shadeProfile, shadesp, false));
+		shade->setMesh(new Sweep(shadeProfile, shadesp, true));
 		shade->getTransform()->setLocalPosition(Vector3(0, 0, 0));
 		shade->getTransform()->setParent(shadeJoint->getTransform());
 		shade->getTransform()->name = "Shade";
