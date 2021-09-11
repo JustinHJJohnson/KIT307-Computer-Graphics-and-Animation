@@ -93,7 +93,7 @@ bool Tutorial4::init() {
 
 	// Tablet 
 	GameObject* tablet = new GameObject(this);
-	tablet->setMesh(new Tablet(Vector3(5, 0.5, 3), 0.5, 0, 0.1, 0));
+	tablet->setMesh(new Tablet(Vector3(5, 0.5, 3), 0.5, 0.2, 0.1, 8));
 	tablet->setMaterial(green);
 	tablet->getTransform()->setLocalPosition(Vector3(7, 0, 7));
 	tablet->getTransform()->setParent(root);

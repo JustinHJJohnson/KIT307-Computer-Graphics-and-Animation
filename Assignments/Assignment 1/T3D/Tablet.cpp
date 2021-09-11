@@ -6,8 +6,8 @@ namespace T3D
 	Tablet::Tablet(Vector3 size, float bezel_width, float corner_radius, float screen_depression, int density)
 	{
 		// Init vertex and index arrays
-		initArrays(10 * 4,	// num vertices
-				   0,		// num tris
+		initArrays(density * 2 + 10 * 4 + 1,	// num vertices
+				   density * 2 + 2,		// num tris
 				   4 * 4 + 2);	// num quads
 
 		// Set vertices
@@ -60,6 +60,7 @@ namespace T3D
 
 		//back of right bezel
 		setVertex(pos++, size.x / 2, -(size.y / 2), (size.z / 2) - bezel_width);
+		printf("%d", pos);
 		setVertex(pos++, size.x / 2, (size.y / 2), (size.z / 2) - bezel_width);
 		setVertex(pos++, size.x / 2, (size.y / 2), -(size.z / 2) + bezel_width);
 		setVertex(pos++, size.x / 2, -(size.y / 2), -(size.z / 2) + bezel_width);
@@ -72,6 +73,29 @@ namespace T3D
 		//bottom of laft bezel
 		setVertex(pos++, (size.x / 2) - bezel_width, -(size.y / 2), (size.z / 2) - bezel_width);
 		setVertex(pos++, (size.x / 2) - bezel_width, -(size.y / 2), -(size.z / 2) + bezel_width);
+
+		//top right corner
+		setVertex(pos++, size.x / 2 - corner_radius, size.y / 2, -(size.z / 2) + corner_radius);
+
+		float circleCentreX = (size.x / 2) - corner_radius;
+		float circleCentreZ = -(size.z / 2) + corner_radius;
+		// Set vertices
+		float dTheta = (Math::PI/2) / density;
+		for (int i = 0; i < density; i++) {
+			float theta = i * dTheta;
+			//float x = (size.x / 2 - corner_radius) * cos(theta);
+			//float z = (-(size.z / 2) + corner_radius) * sin(theta);
+			float x = circleCentreX + corner_radius * cos(theta);
+			float z = circleCentreZ - corner_radius * sin(theta);
+
+			// top vertices
+			setVertex(pos + i, x, size.y / 2, z);
+			//setVertex(startTopCap + i, x, height, z);
+
+			// bottom vertices
+			setVertex(density + pos + i, x, -(size.y / 2), z);
+			//setVertex(startBottomCap + i, x, -height, z);
+		}
 
 
 		// Build quads
@@ -94,6 +118,45 @@ namespace T3D
 		
 		//bottom of the screen
 		setQuadFace(pos++, 19, 18, 9, 8);
+
+		int startCircle = 10 * 4 + 1;
+
+		int topRightCornerCentre = 4;
+
+		// top right corner
+		for (int i = 0; i < density; i++) {
+			setTriFace(
+				i,
+				topRightCornerCentre,
+				startCircle + i,
+				startCircle + (i + 1) % density
+			);
+		}
+
+		// top right corner
+		for (int i = 0; i < density; i++) {
+			setTriFace(
+				i + density,
+				topRightCornerCentre,
+				startCircle + i,
+				startCircle + (i + 1) % density
+			);
+		}
+
+		setTriFace(
+			density,
+			topRightCornerCentre,
+			//startCircle,
+			startCircle + density - 1,
+			1
+		);
+
+		setTriFace(
+			density + 1,
+			topRightCornerCentre,
+			32,
+			startCircle
+		);
 
 		// Check vertex and index arrays
 		checkArrays();
