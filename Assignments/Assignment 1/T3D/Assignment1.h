@@ -17,12 +17,12 @@
 namespace T3D
 {
 	//! \brief Tutorial1 Driver
-	class Tutorial4 :
+	class Assignment1 :
 		public WinGLApplication
 	{
 	public:
-		Tutorial4(void);
-		~Tutorial4(void) = default;
+		Assignment1(void);
+		~Assignment1(void) = default;
 
 		bool init();
 
@@ -30,7 +30,6 @@ namespace T3D
 	private:
 		Texture* drawArea;
 		DrawTask* drawTask;
-
 	};
 
 }

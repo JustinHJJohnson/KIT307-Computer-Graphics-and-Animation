@@ -68,7 +68,7 @@
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Tutorial1.cpp" />
-    <ClCompile Include="Tutorial4.cpp" />
+    <ClCompile Include="Assignment1.cpp" />
     <ClCompile Include="WinGLApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -129,7 +129,7 @@
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Tutorial1.h" />
-    <ClInclude Include="Tutorial4.h" />
+    <ClInclude Include="Assignment1.h" />
     <ClInclude Include="Vector3.h" />
     <ClInclude Include="Vector4.h" />
     <ClInclude Include="WinGLApplication.h" />

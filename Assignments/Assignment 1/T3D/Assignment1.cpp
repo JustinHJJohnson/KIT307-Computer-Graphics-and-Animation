@@ -9,7 +9,7 @@
 // Base application for tutorial 1.  Used in conjunction with DrawTask, a task for drawing onto a 2D texture.
 
 
-#include "Tutorial4.h"
+#include "Assignment1.h"
 #include "WinGLApplication.h"
 #include "GLRenderer.h"
 #include "Camera.h"
@@ -25,14 +25,14 @@
 
 using namespace T3D;
 
-Tutorial4::Tutorial4(void)
+Assignment1::Assignment1(void)
 {
 	drawTask = nullptr;
 	drawArea = new Texture(renderer->WindowWidth, renderer->WindowHeight, false);
 	drawArea->clear(Colour(255, 255, 255, 255));
 }
 
-bool Tutorial4::init() {
+bool Assignment1::init() {
 	WinGLApplication::init();
 
 	// Light
@@ -60,28 +60,12 @@ bool Tutorial4::init() {
 	Material* green = renderer->createMaterial(Renderer::PR_OPAQUE);
 	green->setDiffuse(0, 1, 0, 1);
 
-	// Pyramid
-	/*GameObject* pyramid = new GameObject(this);
-	pyramid->setMesh(new Pyramid(1));
-	pyramid->setMaterial(green);
-	pyramid->getTransform()->setLocalPosition(Vector3(0, 0, 0));
-	pyramid->getTransform()->setParent(root);
-	pyramid->getTransform()->name = "Pyramid";*/
-
-	// Cyclinder
-	/*GameObject* cylinder = new GameObject(this);
-	cylinder->setMesh(new Cylinder(10.0f, 10.0f, 8));
-	cylinder->setMaterial(green);
-	cylinder->getTransform()->setLocalPosition(Vector3(0, 0, 0));
-	cylinder->getTransform()->setParent(root);
-	cylinder->getTransform()->name = "Cylinder";*/
-
 	// Lamp
 	Material* grey = renderer->createMaterial(Renderer::PR_OPAQUE);
 	grey->setDiffuse(0.8, 0.8, 0.9, 1);
 	Lamp* lamp = new Lamp(this);
 	lamp->setMaterial(grey);
-	lamp->getTransform()->setLocalPosition(Vector3(0, 0, 0));
+	lamp->getTransform()->setLocalPosition(Vector3(-2, 0, 2));
 	lamp->getTransform()->setParent(root);
 	lamp->base->setMaterial(grey);
 	lamp->arm1->setMaterial(grey);
@@ -93,7 +77,7 @@ bool Tutorial4::init() {
 
 	// Tablet 
 	GameObject* tablet = new GameObject(this);
-	tablet->setMesh(new Tablet(Vector3(5, 0.5, 3), 0.5, 0.2, 0.1, 8));
+	tablet->setMesh(new Tablet(Vector3(5, 0.7, 3), 0.5, 0.5, 0.2, 8));
 	tablet->setMaterial(green);
 	tablet->getTransform()->setLocalPosition(Vector3(7, 0, 7));
 	tablet->getTransform()->setParent(root);

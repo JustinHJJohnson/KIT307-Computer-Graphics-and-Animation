@@ -225,7 +225,7 @@
     <ClCompile Include="Logger.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
-    <ClCompile Include="Tutorial4.cpp">
+    <ClCompile Include="Assignment1.cpp">
       <Filter>Source Files\Application</Filter>
     </ClCompile>
     <ClCompile Include="Pyramid.cpp">
@@ -410,7 +410,7 @@
     <ClInclude Include="Logger.h">
       <Filter>Header Files\Miscellaneous</Filter>
     </ClInclude>
-    <ClInclude Include="Tutorial4.h">
+    <ClInclude Include="Assignment1.h">
       <Filter>Header Files\Application</Filter>
     </ClInclude>
     <ClInclude Include="Pyramid.h">

@@ -7,7 +7,7 @@ namespace T3D {
 		public Mesh
 	{
 	public:
-		//! \brief Create Cube with volume = `size^3`.
+		//! \brief Create Tablet.
 		Tablet(Vector3 size, float bezel_width, float corner_radius, float screen_depression, int density);
 	};
 }
