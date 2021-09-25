@@ -225,7 +225,7 @@
     <ClCompile Include="Logger.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
-    <ClCompile Include="Assignment1.cpp">
+    <ClCompile Include="Tutorial6.cpp">
       <Filter>Source Files\Application</Filter>
     </ClCompile>
     <ClCompile Include="Pyramid.cpp">
@@ -234,13 +234,22 @@
     <ClCompile Include="Cylinder.cpp">
       <Filter>Source Files\Component\Mesh</Filter>
     </ClCompile>
-    <ClCompile Include="Lamp.cpp">
+    <ClCompile Include="AnimationTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tablet.cpp">
-      <Filter>Source Files\Component\Mesh</Filter>
+    <ClCompile Include="LampBehaviour.cpp">
+      <Filter>Source Files\Component</Filter>
     </ClCompile>
-    <ClCompile Include="Inserter.cpp">
+    <ClCompile Include="Tutorial5.cpp">
+      <Filter>Source Files\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="Tutorial4.cpp">
+      <Filter>Source Files\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="Tutorial3.cpp">
+      <Filter>Source Files\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="Lamp.cpp">
       <Filter>Source Files\Component\Mesh</Filter>
     </ClCompile>
   </ItemGroup>
@@ -413,7 +422,7 @@
     <ClInclude Include="Logger.h">
       <Filter>Header Files\Miscellaneous</Filter>
     </ClInclude>
-    <ClInclude Include="Assignment1.h">
+    <ClInclude Include="Tutorial6.h">
       <Filter>Header Files\Application</Filter>
     </ClInclude>
     <ClInclude Include="Pyramid.h">
@@ -422,13 +431,22 @@
     <ClInclude Include="Cylinder.h">
       <Filter>Header Files\Component\Mesh</Filter>
     </ClInclude>
-    <ClInclude Include="Tablet.h">
-      <Filter>Header Files\Component\Mesh</Filter>
+    <ClInclude Include="AnimationTest.h">
+      <Filter>Header Files\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="LampBehaviour.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Tutorial5.h">
+      <Filter>Header Files\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="Tutorial4.h">
+      <Filter>Header Files\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="Tutorial3.h">
+      <Filter>Header Files\Application</Filter>
     </ClInclude>
     <ClInclude Include="Lamp.h">
-      <Filter>Header Files\Component\Mesh</Filter>
-    </ClInclude>
-    <ClInclude Include="Inserter.h">
       <Filter>Header Files\Component\Mesh</Filter>
     </ClInclude>
   </ItemGroup>

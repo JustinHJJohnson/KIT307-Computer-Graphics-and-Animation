@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="AnimationTest.cpp" />
     <ClCompile Include="Billboard.cpp" />
     <ClCompile Include="Bone.cpp" />
     <ClCompile Include="Camera.cpp" />
@@ -29,9 +30,9 @@
     <ClCompile Include="GLTestApplication.cpp" />
     <ClCompile Include="GLTestRenderer.cpp" />
     <ClCompile Include="Input.cpp" />
-    <ClCompile Include="Inserter.cpp" />
     <ClCompile Include="KeyboardController.cpp" />
     <ClCompile Include="Lamp.cpp" />
+    <ClCompile Include="LampBehaviour.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="LookAtBehaviour.cpp" />
@@ -62,18 +63,21 @@
     <ClCompile Include="SweepPath.cpp" />
     <ClCompile Include="T3DApplication.cpp" />
     <ClCompile Include="T3DTest.cpp" />
-    <ClCompile Include="Tablet.cpp" />
     <ClCompile Include="Task.cpp" />
     <ClCompile Include="Terrain.cpp" />
     <ClCompile Include="TerrainFollower.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Tutorial1.cpp" />
-    <ClCompile Include="Assignment1.cpp" />
+    <ClCompile Include="Tutorial3.cpp" />
+    <ClCompile Include="Tutorial4.cpp" />
+    <ClCompile Include="Tutorial5.cpp" />
+    <ClCompile Include="Tutorial6.cpp" />
     <ClCompile Include="WinGLApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="AnimationTest.h" />
     <ClInclude Include="Billboard.h" />
     <ClInclude Include="Bone.h" />
     <ClInclude Include="Camera.h" />
@@ -91,9 +95,9 @@
     <ClInclude Include="GLTestApplication.h" />
     <ClInclude Include="GLTestRenderer.h" />
     <ClInclude Include="Input.h" />
-    <ClInclude Include="Inserter.h" />
     <ClInclude Include="KeyboardController.h" />
     <ClInclude Include="Lamp.h" />
+    <ClInclude Include="LampBehaviour.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="LookAtBehaviour.h" />
@@ -124,14 +128,16 @@
     <ClInclude Include="SweepPath.h" />
     <ClInclude Include="T3DApplication.h" />
     <ClInclude Include="T3DTest.h" />
-    <ClInclude Include="Tablet.h" />
     <ClInclude Include="Task.h" />
     <ClInclude Include="Terrain.h" />
     <ClInclude Include="TerrainFollower.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Tutorial1.h" />
-    <ClInclude Include="Assignment1.h" />
+    <ClInclude Include="Tutorial3.h" />
+    <ClInclude Include="Tutorial4.h" />
+    <ClInclude Include="Tutorial5.h" />
+    <ClInclude Include="Tutorial6.h" />
     <ClInclude Include="Vector3.h" />
     <ClInclude Include="Vector4.h" />
     <ClInclude Include="WinGLApplication.h" />
@@ -140,7 +146,7 @@
     <ProjectGuid>{A41C2D2A-C0C1-4EE8-9B5A-00EDD049DC2F}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>T3D</RootNamespace>
-    <ProjectName>Assignment 1</ProjectName>
+    <ProjectName>Tutorials</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

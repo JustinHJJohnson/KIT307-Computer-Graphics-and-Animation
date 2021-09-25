@@ -1,16 +1,18 @@
 #pragma once
-#include "Lamp.h"
+#include "Inserter.h"
 #include "T3DApplication.h"
 #include "GameObject.h"
 #include "Cyclinder.h"
 #include "Transform.h"
 #include "SweepPath.h"
 #include "Sweep.h"
+#include "Sweep.h"
+#include "Cube.h"
 
 namespace T3D {
-	Lamp::Lamp(T3DApplication* app):GameObject(app) {
+	Inserter::Inserter(T3DApplication* app) :GameObject(app) {
 		setMesh(new Cylinder(.1, .01, 16));
-		getTransform()->name = "Lamp";
+		getTransform()->name = "Inserter";
 
 		base = new GameObject(app); // note the use of 'app' not 'this' - you should understand why
 		base->setMesh(new Cylinder(.02, .01, 16));
@@ -60,27 +62,9 @@ namespace T3D {
 		armsp.addTransform(t);
 		armsp.addTransform(t);
 
-		std::vector<Vector3> shadeProfile;
-		shadeProfile.push_back(Vector3(0, -0.5, 0) * 0.08);
-		shadeProfile.push_back(Vector3(0.5, -0.4, 0) * 0.08);
-		shadeProfile.push_back(Vector3(0.6, 0.4, 0) * 0.08);
-		shadeProfile.push_back(Vector3(1, 2, 0) * 0.08);
-		shadeProfile.push_back(Vector3(1.5, 2.5, 0) * 0.08);
-		shadeProfile.push_back(Vector3(1.5, 2.5, 0) * 0.08);
-		shadeProfile.push_back(Vector3(1.45, 2.6, 0) * 0.08);
-		shadeProfile.push_back(Vector3(1.45, 2.6, 0) * 0.08);
-		shadeProfile.push_back(Vector3(0.9, 2.1, 0) * 0.08);
-		shadeProfile.push_back(Vector3(0.5, 0.35, 0) * 0.08);
-		shadeProfile.push_back(Vector3(0, 0.4, 0) * 0.08);
-
-		SweepPath shadesp;
-
-		shadesp.makeCirclePath(0, 100);
-
 		baseJoint = new GameObject(app);
 		baseJoint->getTransform()->setParent(base->getTransform());
 		baseJoint->getTransform()->name = "BaseJoint";
-		baseJoint->getTransform()->setLocalRotation(Quaternion(Vector3(Math::PI/2, 0, 0))); // this rotation is just to make a good starting pose;
 
 		elbowJoint = new GameObject(app);
 		elbowJoint->getTransform()->setLocalPosition(Vector3(0, 0.2, 0));
@@ -88,11 +72,20 @@ namespace T3D {
 		elbowJoint->getTransform()->setLocalRotation(Quaternion(Vector3(Math::PI / 4, 0, 0))); // this rotation is just to make a good starting pose
 		elbowJoint->getTransform()->name = "ElbowJoint";
 
-		shadeJoint = new GameObject(app);
-		shadeJoint->getTransform()->setLocalPosition(Vector3(0, 0.2, 0));
-		shadeJoint->getTransform()->setParent(elbowJoint->getTransform());
-		//shadeJoint->getTransform()->setLocalRotation(Quaternion(Vector3(Math::PI / 4, 0, 0))); // this rotation is just to make a good starting pose;
-		shadeJoint->getTransform()->name = "ShadeJoint";
+		headJoint = new GameObject(app);
+		headJoint->getTransform()->setLocalPosition(Vector3(0, 0.2, 0));
+		headJoint->getTransform()->setParent(elbowJoint->getTransform());
+		headJoint->getTransform()->name = "ShadeJoint";
+
+		leftProngJoint = new GameObject(app);
+		leftProngJoint->getTransform()->setLocalPosition(Vector3(-0.12, 0.11, 0));
+		leftProngJoint->getTransform()->setParent(headJoint->getTransform());
+		leftProngJoint->getTransform()->name = "LeftProngJoint";
+
+		rightProngJoint = new GameObject(app);
+		rightProngJoint->getTransform()->setLocalPosition(Vector3(0.12, 0.11, 0));
+		rightProngJoint->getTransform()->setParent(headJoint->getTransform());
+		rightProngJoint->getTransform()->name = "RightProngJoint";
 
 		arm1 = new GameObject(app);
 		arm1->setMesh(new Sweep(armProfile, armsp, false));
@@ -105,11 +98,29 @@ namespace T3D {
 		arm2->getTransform()->setLocalPosition(Vector3(0, 0.1, 0));
 		arm2->getTransform()->setParent(elbowJoint->getTransform());
 		arm2->getTransform()->name = "Arm2";
-		
-		shade = new GameObject(app);
-		shade->setMesh(new Sweep(shadeProfile, shadesp, true));
-		shade->getTransform()->setLocalPosition(Vector3(0, 0, 0));
-		shade->getTransform()->setParent(shadeJoint->getTransform());
-		shade->getTransform()->name = "Shade";
+
+		head = new GameObject(app);
+		head->setMesh(new Sweep(armProfile, armsp, false));
+		head->getTransform()->setLocalPosition(Vector3(0, 0.01, 0));
+		head->getTransform()->setParent(headJoint->getTransform());
+		head->getTransform()->setLocalRotation(Quaternion(Vector3(0, 0, Math::PI / 2)));;
+		head->getTransform()->name = "BaseHead";
+
+		leftProng = new GameObject(app);
+		leftProng->setMesh(new Sweep(armProfile, armsp, false));
+		leftProng->getTransform()->setLocalPosition(Vector3(0, 0.01, 0));
+		leftProng->getTransform()->setParent(leftProngJoint->getTransform());
+		//leftProng->getTransform()->setLocalRotation(Quaternion(Vector3(Math::PI / 2, 0, 0)));
+		leftProng->getTransform()->setLocalRotation(Quaternion(Vector3(0, 0, 0)));
+		leftProng->getTransform()->setLocalScale(Vector3(0.5, 1, 1));
+		leftProng->getTransform()->name = "LeftProng";
+
+		rightProng = new GameObject(app);
+		rightProng->setMesh(new Sweep(armProfile, armsp, false));
+		rightProng->getTransform()->setLocalPosition(Vector3(0, 0.01, 0));
+		rightProng->getTransform()->setParent(rightProngJoint->getTransform());
+		rightProng->getTransform()->setLocalRotation(Quaternion(Vector3(0, 0, 0)));
+		rightProng->getTransform()->setLocalScale(Vector3(0.5, 1, 1));
+		rightProng->getTransform()->name = "RightProng";
 	}
 }
