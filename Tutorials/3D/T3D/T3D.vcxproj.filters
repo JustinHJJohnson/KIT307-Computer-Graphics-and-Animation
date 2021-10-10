@@ -252,6 +252,18 @@
     <ClCompile Include="Lamp.cpp">
       <Filter>Source Files\Component\Mesh</Filter>
     </ClCompile>
+    <ClCompile Include="Tutorial7.cpp">
+      <Filter>Source Files\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="TCube.cpp">
+      <Filter>Source Files\Component\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TCylinder.h">
+      <Filter>Header Files\Component\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TCylinder.cpp">
+      <Filter>Source Files\Component\Mesh</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Mesh.h">
@@ -447,6 +459,12 @@
       <Filter>Header Files\Application</Filter>
     </ClInclude>
     <ClInclude Include="Lamp.h">
+      <Filter>Header Files\Component\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Tutorial7.h">
+      <Filter>Header Files\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="TCube.h">
       <Filter>Header Files\Component\Mesh</Filter>
     </ClInclude>
   </ItemGroup>

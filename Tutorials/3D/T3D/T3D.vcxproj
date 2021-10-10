@@ -64,6 +64,9 @@
     <ClCompile Include="T3DApplication.cpp" />
     <ClCompile Include="T3DTest.cpp" />
     <ClCompile Include="Task.cpp" />
+    <ClCompile Include="TCube.cpp" />
+    <ClCompile Include="TCylinder.cpp" />
+    <ClCompile Include="TCylinder.h" />
     <ClCompile Include="Terrain.cpp" />
     <ClCompile Include="TerrainFollower.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -73,6 +76,7 @@
     <ClCompile Include="Tutorial4.cpp" />
     <ClCompile Include="Tutorial5.cpp" />
     <ClCompile Include="Tutorial6.cpp" />
+    <ClCompile Include="Tutorial7.cpp" />
     <ClCompile Include="WinGLApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +133,7 @@
     <ClInclude Include="T3DApplication.h" />
     <ClInclude Include="T3DTest.h" />
     <ClInclude Include="Task.h" />
+    <ClInclude Include="TCube.h" />
     <ClInclude Include="Terrain.h" />
     <ClInclude Include="TerrainFollower.h" />
     <ClInclude Include="Texture.h" />
@@ -138,6 +143,7 @@
     <ClInclude Include="Tutorial4.h" />
     <ClInclude Include="Tutorial5.h" />
     <ClInclude Include="Tutorial6.h" />
+    <ClInclude Include="Tutorial7.h" />
     <ClInclude Include="Vector3.h" />
     <ClInclude Include="Vector4.h" />
     <ClInclude Include="WinGLApplication.h" />

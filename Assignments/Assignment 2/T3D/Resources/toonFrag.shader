@@ -29,6 +29,11 @@ vec4 phongIllumination(vec4 P, vec3 N)
 vec4 toonIllumination(vec4 P, vec3 N)
 {
 	vec3 V = normalize(P.xyz);
+
+	if(dot(V, N) > 0.001)
+	{
+		return vec4(1,0,0.8,1);
+	}
 	
 	// Ambient calculation
 	vec4 ambient = gl_FrontMaterial.ambient * gl_LightModel.ambient;

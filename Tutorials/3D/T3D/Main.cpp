@@ -14,6 +14,7 @@
 #include "Tutorial4.h"
 #include "Tutorial5.h"
 #include "Tutorial6.h"
+#include "Tutorial7.h"
 #include "ShaderTest.h"
 #include "GLTestApplication.h"
 
@@ -25,7 +26,7 @@
 using namespace T3D;
 
 int main(int argc, char* argv[]) {
-	T3DApplication *theApp = new Tutorial5();
+	T3DApplication *theApp = new Tutorial7();
 
 	theApp->run();
 	delete theApp;

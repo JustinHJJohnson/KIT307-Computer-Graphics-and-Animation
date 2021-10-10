@@ -61,12 +61,6 @@
     <Filter Include="Source Files\Miscellaneous">
       <UniqueIdentifier>{4d94b0f6-3db6-4a1b-8006-c3a30eef95fb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Application\Assignment2">
-      <UniqueIdentifier>{d69568f1-d8e2-4165-a395-0e23e61cf6f6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Application\Assignment2">
-      <UniqueIdentifier>{17ea666d-d3f7-49eb-9ee9-53835ce47e69}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -258,8 +252,20 @@
     <ClCompile Include="Lamp.cpp">
       <Filter>Source Files\Component\Mesh</Filter>
     </ClCompile>
+    <ClCompile Include="Tutorial7.cpp">
+      <Filter>Source Files\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="TCube.cpp">
+      <Filter>Source Files\Component\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TCylinder.h">
+      <Filter>Header Files\Component\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TCylinder.cpp">
+      <Filter>Source Files\Component\Mesh</Filter>
+    </ClCompile>
     <ClCompile Include="ToonShader.cpp">
-      <Filter>Source Files\Application\Assignment2</Filter>
+      <Filter>Source Files\Tasks</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -458,8 +464,14 @@
     <ClInclude Include="Lamp.h">
       <Filter>Header Files\Component\Mesh</Filter>
     </ClInclude>
+    <ClInclude Include="Tutorial7.h">
+      <Filter>Header Files\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="TCube.h">
+      <Filter>Header Files\Component\Mesh</Filter>
+    </ClInclude>
     <ClInclude Include="ToonShader.h">
-      <Filter>Header Files\Application\Assignment2</Filter>
+      <Filter>Header Files\Tasks</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
