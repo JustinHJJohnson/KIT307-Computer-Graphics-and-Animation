@@ -22,6 +22,8 @@
 #include "Cylinder.h"
 #include "Lamp.h"
 #include "Sphere.h"
+#include "THouse.h"
+#include "TCube.h"
 #include "GLShader.h"
 
 using namespace T3D;
@@ -30,7 +32,7 @@ ToonShader::ToonShader(void)
 {
 	drawTask = nullptr;
 	drawArea = new Texture(renderer->WindowWidth, renderer->WindowHeight, false);
-	drawArea->clear(Colour(255, 255, 255, 1));
+	drawArea->clear(Colour(0, 0, 0, 255));
 }
 
 bool ToonShader::init() {
@@ -52,7 +54,7 @@ bool ToonShader::init() {
 	//This camera is super fast... you have been warned
 	GameObject* camObj = new GameObject(this);
 	renderer->camera = new Camera(0.1, 500.0, 45.0, 1.6);
-	camObj->getTransform()->setLocalPosition(Vector3(0, 0.5, 3));
+	camObj->getTransform()->setLocalPosition(Vector3(0, 0.5, 15));
 	camObj->setCamera(renderer->camera);
 	camObj->getTransform()->setParent(root);
 	camObj->addComponent(new KeyboardController());
@@ -71,6 +73,20 @@ bool ToonShader::init() {
 	toonShader->compileShader();
 	toonGreen->setShader(toonShader);
 
+	// Textures
+	Texture* cratetex = new Texture("Resources/House.png", true, true);
+	renderer->loadTexture(cratetex);
+	Material* cratemat = renderer->createMaterial(Renderer::PR_OPAQUE);
+	cratemat->setTexture(cratetex);
+
+	// House
+	GameObject* house = new GameObject(this);
+	house->setMesh(new THouse());
+	house->setMaterial(cratemat);
+	house->getTransform()->setLocalPosition(Vector3(-2, 0, 10));
+	house->getTransform()->setParent(root);
+	house->getTransform()->name = "THouse";
+
 	// Sphere
 	GameObject* sphere = new GameObject(this);
 	sphere->setMesh(new Sphere(1, 32));
@@ -85,6 +101,10 @@ bool ToonShader::init() {
 	cube->getTransform()->setLocalPosition(Vector3(0, 0, -11));
 	cube->getTransform()->setParent(root);
 	cube->getTransform()->name = "Cube";
+
+	renderer->ambient[0] = 0.3;
+	renderer->ambient[1] = 0.3;
+	renderer->ambient[2] = 0.3;
 
 	return true;
 }

@@ -25,7 +25,7 @@ Tutorial7::Tutorial7(void)
 {
 	drawTask = nullptr;
 	drawArea = new Texture(renderer->WindowWidth, renderer->WindowHeight, false);
-	drawArea->clear(Colour(255, 255, 255, 255));
+	drawArea->clear(Colour(0, 0, 0, 255));
 }
 
 bool Tutorial7::init() {

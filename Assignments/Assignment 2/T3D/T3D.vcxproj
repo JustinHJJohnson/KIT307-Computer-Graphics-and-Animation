@@ -70,6 +70,7 @@
     <ClCompile Include="Terrain.cpp" />
     <ClCompile Include="TerrainFollower.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="THouse.cpp" />
     <ClCompile Include="ToonShader.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Tutorial1.cpp" />
@@ -138,6 +139,7 @@
     <ClInclude Include="Terrain.h" />
     <ClInclude Include="TerrainFollower.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="THouse.h" />
     <ClInclude Include="ToonShader.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Tutorial1.h" />

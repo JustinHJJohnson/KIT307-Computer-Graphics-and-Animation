@@ -265,7 +265,10 @@
       <Filter>Source Files\Component\Mesh</Filter>
     </ClCompile>
     <ClCompile Include="ToonShader.cpp">
-      <Filter>Source Files\Tasks</Filter>
+      <Filter>Source Files\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="THouse.cpp">
+      <Filter>Source Files\Component\Mesh</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -471,7 +474,10 @@
       <Filter>Header Files\Component\Mesh</Filter>
     </ClInclude>
     <ClInclude Include="ToonShader.h">
-      <Filter>Header Files\Tasks</Filter>
+      <Filter>Header Files\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="THouse.h">
+      <Filter>Header Files\Component\Mesh</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

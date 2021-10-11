@@ -27,13 +27,18 @@ namespace T3D {
 		GLchar const *frag       = fragSource.c_str();
 		GLint  const  fragLength = fragSource.size();
 
-		logger::Log(priority::Tracing,
-					output_stream::All,
-					category::Video,
-					"Compiling Shader...\nVertex Source :\n```\n%s\n```\nFragment Source :\n```\n%s\n```"
-					,
-					vert,
-					frag);
+		bool log = false;
+		
+		if (log)
+		{
+			logger::Log(priority::Tracing,
+				output_stream::All,
+				category::Video,
+				"Compiling Shader...\nVertex Source :\n```\n%s\n```\nFragment Source :\n```\n%s\n```"
+				,
+				vert,
+				frag);
+		}
 		
 		/* Give the shader compiler our vertex and fragment sources, compile them, and check for errors */
 		glShaderSource(vertID, 1, &vert, &vertLength);
