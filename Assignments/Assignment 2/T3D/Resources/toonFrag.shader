@@ -4,6 +4,7 @@ in vec3 N;
 
 float specularThreshold = 0.5;
 float diffuseThreshold = 0.0;
+float outlineThreshold = -0.2;
 
 vec4 phongIllumination(vec4 P, vec3 N)
 {
@@ -30,9 +31,9 @@ vec4 toonIllumination(vec4 P, vec3 N)
 {
 	vec3 V = normalize(P.xyz);
 
-	if(dot(V, N) > 0.001)
+	if(dot(V, N) > outlineThreshold)
 	{
-		return vec4(1,0,0.8,1);
+		return vec4(0,0,0,1);
 	}
 	
 	// Ambient calculation

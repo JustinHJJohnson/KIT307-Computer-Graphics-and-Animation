@@ -43,16 +43,16 @@ namespace T3D
 		 *
 		 */
 		static float lerp(float first, float second, float t) { return t*(second-first)+first; }
-		static float smoothedLerp(float first, float second, float t, float accelerationTime)
+		static float smoothedLerp(float first, float second, float t, float aT)
 		{ 
 			float dist = second - first;
-			float acceleration = dist / (accelerationTime * (1 - accelerationTime));
-			float velocity = acceleration * accelerationTime;
+			float a = dist / (aT * (1 - aT));
+			float v = a * aT;
 
 			if (t < 0) return first;
-			else if (t < accelerationTime) return first + 0.5 * acceleration * t * t;
-			else if (t < 1 - accelerationTime) return first + 0.5 * acceleration * accelerationTime * accelerationTime + velocity * (t - accelerationTime);
-			else if (t <= 1) return first + 0.5 * acceleration * accelerationTime * accelerationTime + velocity * (1 - 2 * accelerationTime) + velocity * (t - 1 + accelerationTime) - 0.5 * acceleration * (t - 1 + accelerationTime) * (t - 1 + accelerationTime);
+			else if (t < aT) return first + 0.5 * a * t * t;
+			else if (t < 1 - aT) return first + 0.5 * a * aT * aT + v * (t - aT);
+			else if (t <= 1) return first + 0.5 * a * aT * aT + v * (1 - 2 * aT) + v * (t - 1 + aT) - 0.5 * a * (t - 1 + aT) * (t - 1 + aT);
 
 			return second;
 		}

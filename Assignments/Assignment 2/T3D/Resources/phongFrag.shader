@@ -59,12 +59,10 @@ vec4 orenNayarlllum(vec4 P, vec3 N)
 	vec4 diffuse = gl_FrontMaterial.diffuse * gl_LightSource[0].diffuse * diffuseIntensity;
 	
 	// Specular calculation
-	
 	float specularIntensity = pow(max(dot(R, V),0),0.3*gl_FrontMaterial.shininess);
 	vec4 specular = gl_FrontMaterial.specular * gl_LightSource[0].specular * specularIntensity;
 	
 	return clamp(ambient+emission+diffuse+specular, 0, 1);
-	//return clamp(ambient+emission+diffuse, 0, 1);
 }
 
 void main()

@@ -27,7 +27,7 @@ namespace T3D
 		int vpos = 0;
 		int uvpos = 0;
 
-		//back
+		//back wall
 		setVertex(vpos++, -size, -size, -size);
 		setVertex(vpos++, size, -size, -size);
 		setVertex(vpos++, size, size, -size);
@@ -38,7 +38,7 @@ namespace T3D
 		setUV(uvpos++, 0.8, 0);
 		setUV(uvpos++, 1, 0);
 
-		//front
+		//front wall
 		setVertex(vpos++, -size, -size, size);
 		setVertex(vpos++, size, -size, size);
 		setVertex(vpos++, size, size, size);
@@ -49,7 +49,7 @@ namespace T3D
 		setUV(uvpos++, 1, 0.5);
 		setUV(uvpos++, 0.8, 0.5);
 
-		//left
+		//left wall
 		setVertex(vpos++, -size, -size, -size);
 		setVertex(vpos++, -size, size, -size);
 		setVertex(vpos++, -size, size, size);
@@ -60,7 +60,7 @@ namespace T3D
 		setUV(uvpos++, 0.8, 0);
 		setUV(uvpos++, 0.8, 0.5);
 
-		//right
+		//right wall
 		setVertex(vpos++, size, -size, -size);
 		setVertex(vpos++, size, size, -size);
 		setVertex(vpos++, size, size, size);
@@ -71,7 +71,7 @@ namespace T3D
 		setUV(uvpos++, 0.6, 0.5);
 		setUV(uvpos++, 0.6, 1);
 
-		//bottom
+		//bottom wall
 		setVertex(vpos++, -size, -size, -size);
 		setVertex(vpos++, -size, -size, size);
 		setVertex(vpos++, size, -size, size);
@@ -128,10 +128,10 @@ namespace T3D
 		setVertex(vpos++, 0.8, size + roofHeight, 0.2);
 		setVertex(vpos++, 0.4, size + roofHeight, 0.2);
 
-		setUV(uvpos++, 0, 1);
-		setUV(uvpos++, 0.2, 1);
-		setUV(uvpos++, 0.2, 0.5);
+		setUV(uvpos++, 0.2, 0.25);
 		setUV(uvpos++, 0, 0.5);
+		setUV(uvpos++, 0, 0);
+		setUV(uvpos++, 0.2, 0);
 
 		//back chimney
 		setVertex(vpos++, 0.8, size + 0.2, -0.2);
@@ -139,10 +139,10 @@ namespace T3D
 		setVertex(vpos++, 0.4, size + roofHeight, -0.2);
 		setVertex(vpos++, 0.8, size + roofHeight, -0.2);
 
-		setUV(uvpos++, 0, 1);
-		setUV(uvpos++, 0.2, 1);
-		setUV(uvpos++, 0.2, 0.5);
 		setUV(uvpos++, 0, 0.5);
+		setUV(uvpos++, 0.2, 0.25);
+		setUV(uvpos++, 0.2, 0);
+		setUV(uvpos++, 0, 0);
 
 		//right chimney
 		setVertex(vpos++, 0.8, size + 0.2, -0.2);
@@ -179,15 +179,15 @@ namespace T3D
 
 		// Build quads
 		vpos = 0;
-		//front
+		//front wall
 		setQuadFace(vpos++, 3, 2, 1, 0);
-		//back
+		//back wall
 		setQuadFace(vpos++, 4, 5, 6, 7);
-		//left
+		//left wall
 		setQuadFace(vpos++, 11, 10, 9, 8);
-		//right
+		//right wall
 		setQuadFace(vpos++, 12, 13, 14, 15);
-		//bottom
+		//bottom wall
 		setQuadFace(vpos++, 19, 18, 17, 16);
 		//left roof
 		setQuadFace(vpos++, 20, 21, 22, 23);
@@ -220,37 +220,34 @@ namespace T3D
 		// Setup other arrays		
 		vpos = 0;
 		//front
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 4; i++)
+		{
 			colors[vpos++] = 1; colors[vpos++] = 0; colors[vpos++] = 0; colors[vpos++] = 1;
 		}
 		//back
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 4; i++)
+		{
 			colors[vpos++] = 1; colors[vpos++] = 0; colors[vpos++] = 0; colors[vpos++] = 1;
 		}
 		//left
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 4; i++)
+		{
 			colors[vpos++] = 0; colors[vpos++] = 1; colors[vpos++] = 0; colors[vpos++] = 1;
 		}
 		//right
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 4; i++)
+		{
 			colors[vpos++] = 0; colors[vpos++] = 1; colors[vpos++] = 0; colors[vpos++] = 1;
 		}
 		//bottom
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 4; i++)
+		{
 			colors[vpos++] = 0; colors[vpos++] = 0; colors[vpos++] = 1; colors[vpos++] = 1;
 		}
 		//top
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 4; i++)
+		{
 			colors[vpos++] = 0; colors[vpos++] = 0; colors[vpos++] = 1; colors[vpos++] = 1;
 		}
-
-		//uvs
-		/*vpos = 0;
-		for (int f = 0; f < 6; f++) {
-			uvs[vpos++] = 0; uvs[vpos++] = 0;
-			uvs[vpos++] = 0; uvs[vpos++] = 1;
-			uvs[vpos++] = 1; uvs[vpos++] = 1;
-			uvs[vpos++] = 1; uvs[vpos++] = 0;
-		}*/
 	}
 }

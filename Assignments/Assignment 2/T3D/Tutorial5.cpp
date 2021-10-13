@@ -79,21 +79,21 @@ bool Tutorial5::init() {
 	phongShader->compileShader();
 	phongGreen->setShader(phongShader);
 
-	// Cyclinder
+	// Sphere
 	GameObject* sphere1 = new GameObject(this);
 	sphere1->setMesh(new Sphere(1, 32));
 	sphere1->setMaterial(fixedGreen);
 	sphere1->getTransform()->setLocalPosition(Vector3(-3, 0, 0));
 	sphere1->getTransform()->setParent(root);
 	sphere1->getTransform()->name = "Sphere1";
-	// Cyclinder
+	// Sphere
 	GameObject* sphere2 = new GameObject(this);
 	sphere2->setMesh(new Sphere(1, 32));
 	sphere2->setMaterial(gouraudGreen);
 	sphere2->getTransform()->setLocalPosition(Vector3(0, 0, 0));
 	sphere2->getTransform()->setParent(root);
 	sphere2->getTransform()->name = "Sphere2";
-	// Cyclinder
+	// Sphere
 	GameObject* sphere3 = new GameObject(this);
 	sphere3->setMesh(new Sphere(1, 32));
 	sphere3->setMaterial(phongGreen);

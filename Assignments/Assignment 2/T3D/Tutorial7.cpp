@@ -68,12 +68,12 @@ bool Tutorial7::init() {
 	barrelmat->setTexture(barreltex);
 
 	// Cyclinder
-	GameObject* cylinder = new GameObject(this);
-	cylinder->setMesh(new TCylinder(1, 1, 10));
+	/*GameObject* cylinder = new GameObject(this);
+	cylinder->setMesh(new TCylinder(1, 1, 8));
 	cylinder->setMaterial(barrelmat);
 	cylinder->getTransform()->setLocalPosition(Vector3(2, 0, 0));
 	cylinder->getTransform()->setParent(root);
-	cylinder->getTransform()->name = "Cylinder";
+	cylinder->getTransform()->name = "Cylinder";*/
 
 	// Cube
 	GameObject* cube = new GameObject(this);

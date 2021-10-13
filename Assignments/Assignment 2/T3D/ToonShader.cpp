@@ -30,9 +30,9 @@ using namespace T3D;
 
 ToonShader::ToonShader(void)
 {
-	drawTask = nullptr;
-	drawArea = new Texture(renderer->WindowWidth, renderer->WindowHeight, false);
-	drawArea->clear(Colour(0, 0, 0, 255));
+	//drawTask = nullptr;
+	//drawArea = new Texture(renderer->WindowWidth, renderer->WindowHeight, false);
+	//drawArea->clear(Colour(0, 0, 0, 255));
 }
 
 bool ToonShader::init() {
