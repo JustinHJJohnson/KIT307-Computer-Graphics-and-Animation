@@ -169,12 +169,12 @@ bool AssigAnimation::init() {
 	bowlingBall->getTransform()->name = "bowlingBall";
 
 	// Bottle
-	/*Bottle* bottle = new Bottle(this);
+	Bottle* bottle = new Bottle(this, 50);
 	bottle->setMaterial(green);
-	bottle->getTransform()->setLocalPosition(Vector3(1, 1, 0));
+	bottle->getTransform()->setLocalPosition(Vector3(0, 0, 0));
 	bottle->getTransform()->setParent(root);
 	bottle->bottle->setMaterial(green);
-	//bottle->bottle->getTransform()->setLocalRotation(Quaternion(Vector3(Math::PI / 1.6, 0, 0)));*/
+	bottle->bottle->getTransform()->setLocalScale(Vector3(0.5, 0.5, 0.5));
 
 	// The Building
 	GameObject* doorLeftWall = new GameObject(this);
