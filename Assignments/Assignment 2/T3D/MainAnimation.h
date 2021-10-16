@@ -18,10 +18,26 @@ namespace T3D
 
 		Transform* camera;
 		Transform* bowlingBall;
+		Transform* bottle1;
+		Transform* bottle2;
+		Transform* bottle3;
+		Transform* bottle4;
+		Transform* bottle5;
+		Transform* bottle6;
 
 		Sound* breakAnnouncement;
-		bool announcementPlayed;
+		Sound* timeToBowl;
+		Sound* unfortunate;
+		Sound* damnIt;
+		Sound* slipped;
+		Sound* wtf;
 
+		bool announcementPlayed;
+		bool timeToBowlPlayed;
+		bool unfortunatePlayed;
+		bool damnItPlayed;
+		bool slippedPlayed;
+		bool wtfPlayed;
 
 		MainAnimation::MainAnimation(T3DApplication* app);
 		void MainAnimation::update(float dt);

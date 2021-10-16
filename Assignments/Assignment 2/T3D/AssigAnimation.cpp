@@ -26,6 +26,7 @@
 #include "Speaker.h"
 #include "Bottle.h"
 #include "GLShader.h"
+#include "Billboard.h"
 
 using namespace T3D;
 
@@ -39,6 +40,8 @@ AssigAnimation::AssigAnimation(void)
 bool AssigAnimation::init() {
 	WinGLApplication::init();
 
+	renderer->loadSkybox("Resources/Sunny1");
+
 	// Light
 	GameObject* lightObj = new GameObject(this);
 	Light* light = new Light(Light::Type::DIRECTIONAL);
@@ -48,7 +51,7 @@ bool AssigAnimation::init() {
 	lightObj->setLight(light);
 	lightObj->getTransform()->
 		setLocalRotation(
-			Vector3(-45 * Math::DEG2RAD, 70 * Math::DEG2RAD, 0));
+			Vector3(315 * Math::DEG2RAD, 70 * Math::DEG2RAD, 0));
 	lightObj->getTransform()->setParent(root);
 
 	//add a camera to the scene
@@ -59,7 +62,7 @@ bool AssigAnimation::init() {
 	camObj->getTransform()->setLocalRotation(Vector3(22 * Math::DEG2RAD, 115 * Math::DEG2RAD, 0));
 	camObj->setCamera(renderer->camera);
 	camObj->getTransform()->setParent(root);
-	camObj->addComponent(new KeyboardController());
+	//camObj->addComponent(new KeyboardController());
 
 	// Materials
 	Material* green = renderer->createMaterial(Renderer::PR_OPAQUE);
@@ -168,13 +171,58 @@ bool AssigAnimation::init() {
 	bowlingBall->getTransform()->setParent(root);
 	bowlingBall->getTransform()->name = "bowlingBall";
 
-	// Bottle
-	Bottle* bottle = new Bottle(this, 50);
-	bottle->setMaterial(green);
-	bottle->getTransform()->setLocalPosition(Vector3(0, 0, 0));
-	bottle->getTransform()->setParent(root);
-	bottle->bottle->setMaterial(green);
-	bottle->bottle->getTransform()->setLocalScale(Vector3(0.5, 0.5, 0.5));
+	// Bottles
+	Bottle* bottle1 = new Bottle(this, 50);
+	bottle1->setMaterial(green);
+	bottle1->getTransform()->setLocalPosition(Vector3(7, 0, -5));
+	bottle1->getTransform()->setParent(root);
+	bottle1->bottle->setMaterial(green);
+	bottle1->bottle->getTransform()->setLocalScale(Vector3(0.5, 0.5, 0.5));
+	bowlingBall->getTransform()->name = "bottle1";
+
+
+	Bottle* bottle2 = new Bottle(this, 50);
+	bottle2->setMaterial(green);
+	bottle2->getTransform()->setLocalPosition(Vector3(6.95, 0, -5.1));
+	bottle2->getTransform()->setParent(root);
+	bottle2->bottle->setMaterial(green);
+	bottle2->bottle->getTransform()->setLocalScale(Vector3(0.5, 0.5, 0.5));
+	bowlingBall->getTransform()->name = "bottle2";
+
+	Bottle* bottle3 = new Bottle(this, 50);
+	bottle3->setMaterial(green);
+	bottle3->getTransform()->setLocalPosition(Vector3(7.05, 0, -5.1));
+	bottle3->getTransform()->setParent(root);
+	bottle3->bottle->setMaterial(green);
+	bottle3->bottle->getTransform()->setLocalScale(Vector3(0.5, 0.5, 0.5));
+	bowlingBall->getTransform()->name = "bottle3";
+
+
+	Bottle* bottle4 = new Bottle(this, 50);
+	bottle4->setMaterial(green);
+	bottle4->getTransform()->setLocalPosition(Vector3(7.1, 0, -5.2));
+	bottle4->getTransform()->setParent(root);
+	bottle4->bottle->setMaterial(green);
+	bottle4->bottle->getTransform()->setLocalScale(Vector3(0.5, 0.5, 0.5));
+	bowlingBall->getTransform()->name = "bottle4";
+
+
+	Bottle* bottle5 = new Bottle(this, 50);
+	bottle5->setMaterial(green);
+	bottle5->getTransform()->setLocalPosition(Vector3(7, 0, -5.2));
+	bottle5->getTransform()->setParent(root);
+	bottle5->bottle->setMaterial(green);
+	bottle5->bottle->getTransform()->setLocalScale(Vector3(0.5, 0.5, 0.5));
+	bowlingBall->getTransform()->name = "bottle5";
+
+
+	Bottle* bottle6 = new Bottle(this, 50);
+	bottle6->setMaterial(green);
+	bottle6->getTransform()->setLocalPosition(Vector3(6.9, 0, -5.2));
+	bottle6->getTransform()->setParent(root);
+	bottle6->bottle->setMaterial(green);
+	bottle6->bottle->getTransform()->setLocalScale(Vector3(0.5, 0.5, 0.5));
+	bowlingBall->getTransform()->name = "bottle6";
 
 	// The Building
 	GameObject* doorLeftWall = new GameObject(this);
@@ -195,7 +243,7 @@ bool AssigAnimation::init() {
 	roof->setMesh(new PlaneMesh(1));
 	roof->setMaterial(grey);
 	roof->getTransform()->setLocalPosition(Vector3(0, 1, 0));
-	roof->getTransform()->setLocalScale(Vector3(20, 1, 30));
+	roof->getTransform()->setLocalScale(Vector3(8, 1, 5));
 	roof->getTransform()->setLocalRotation(Vector3(180 * Math::DEG2RAD, 0, 0));
 	roof->getTransform()->setParent(root);
 	roof->getTransform()->name = "Roof";
@@ -204,7 +252,7 @@ bool AssigAnimation::init() {
 	outsideLeftWall->setMesh(new PlaneMesh(1));
 	outsideLeftWall->setMaterial(brown);
 	outsideLeftWall->getTransform()->setLocalPosition(Vector3(0, 0, -2.2));
-	outsideLeftWall->getTransform()->setLocalScale(Vector3(10, 1, 2));
+	outsideLeftWall->getTransform()->setLocalScale(Vector3(8, 1, 2));
 	outsideLeftWall->getTransform()->setLocalRotation(Vector3(90 * Math::DEG2RAD, 0, 0));
 	outsideLeftWall->getTransform()->setParent(root);
 	outsideLeftWall->getTransform()->name = "OutsideLeftWall";
@@ -213,7 +261,7 @@ bool AssigAnimation::init() {
 	outsideRightWall->setMesh(new PlaneMesh(1));
 	outsideRightWall->setMaterial(brown);
 	outsideRightWall->getTransform()->setLocalPosition(Vector3(0, 0, 2.2));
-	outsideRightWall->getTransform()->setLocalScale(Vector3(10, 1, 2));
+	outsideRightWall->getTransform()->setLocalScale(Vector3(8, 1, 2));
 	outsideRightWall->getTransform()->setLocalRotation(Vector3(-90 * Math::DEG2RAD, 0, 0));
 	outsideRightWall->getTransform()->setParent(root);
 	outsideRightWall->getTransform()->name = "OutsideRightWall";
@@ -235,6 +283,27 @@ bool AssigAnimation::init() {
 	animTask->inserter3 = inserter3;
 	animTask->inserter4 = inserter4;
 	animTask->bowlingBall = bowlingBall->getTransform();
+	animTask->bottle1 = bottle1->getTransform();
+	animTask->bottle2 = bottle2->getTransform();
+	animTask->bottle3 = bottle3->getTransform();
+	animTask->bottle4 = bottle4->getTransform();
+	animTask->bottle5 = bottle5->getTransform();
+	animTask->bottle6 = bottle6->getTransform();
+
+	//Create a textured material by adding text
+	Texture* billboardTex = new Texture("Resources/Billboard.png", true, true);
+	renderer->loadTexture(billboardTex);
+	Material* billboardMat = renderer->createMaterial(Renderer::PR_OPAQUE);
+	billboardMat->setTexture(billboardTex);
+
+	GameObject* billboard = new GameObject(this);
+	Billboard* billboardComponent = new Billboard(renderer->camera->gameObject->getTransform(), true);
+	billboard->addComponent(billboardComponent);
+	billboard->setMaterial(billboardMat);			// hello world
+	billboard->getTransform()->setLocalPosition(Vector3(0, 1, 3));
+	billboard->getTransform()->setLocalScale(Vector3(1, 1.5, 1));
+	billboard->getTransform()->setParent(root);
+	billboard->getTransform()->name = "Billboard";
 
 	addTask(animTask);
 

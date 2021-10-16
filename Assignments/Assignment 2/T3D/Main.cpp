@@ -23,6 +23,7 @@ using namespace T3D;
 
 int main(int argc, char* argv[])
 {
+	// AssigAnimation is my movie, ToonShader is the textured object and shader
 	T3DApplication *theApp = new AssigAnimation();
 	//T3DApplication *theApp = new ToonShader();
 

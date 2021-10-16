@@ -4,7 +4,7 @@ in vec3 N;
 
 float specularThreshold = 0.5;
 float diffuseThreshold = 0.0;
-float outlineThreshold = -0.2;
+float outlineThreshold = -0.3;
 
 vec4 phongIllumination(vec4 P, vec3 N)
 {

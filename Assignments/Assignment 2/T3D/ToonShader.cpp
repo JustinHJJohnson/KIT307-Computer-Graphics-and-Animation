@@ -74,15 +74,15 @@ bool ToonShader::init() {
 	toonGreen->setShader(toonShader);
 
 	// Textures
-	Texture* cratetex = new Texture("Resources/House.png", true, true);
-	renderer->loadTexture(cratetex);
-	Material* cratemat = renderer->createMaterial(Renderer::PR_OPAQUE);
-	cratemat->setTexture(cratetex);
+	Texture* houseTex = new Texture("Resources/House.png", true, true);
+	renderer->loadTexture(houseTex);
+	Material* houseMat = renderer->createMaterial(Renderer::PR_OPAQUE);
+	houseMat->setTexture(houseTex);
 
 	// House
 	GameObject* house = new GameObject(this);
 	house->setMesh(new THouse());
-	house->setMaterial(cratemat);
+	house->setMaterial(houseMat);
 	house->getTransform()->setLocalPosition(Vector3(-2, 0, 10));
 	house->getTransform()->setParent(root);
 	house->getTransform()->name = "THouse";

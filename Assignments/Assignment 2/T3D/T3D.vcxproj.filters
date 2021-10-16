@@ -177,12 +177,6 @@
     <ClCompile Include="DrawTask.cpp">
       <Filter>Source Files\Tasks</Filter>
     </ClCompile>
-    <ClCompile Include="T3DTest.cpp">
-      <Filter>Source Files\Application</Filter>
-    </ClCompile>
-    <ClCompile Include="Tutorial1.cpp">
-      <Filter>Source Files\Application</Filter>
-    </ClCompile>
     <ClCompile Include="GLShader.cpp">
       <Filter>Source Files\Material</Filter>
     </ClCompile>
@@ -225,9 +219,6 @@
     <ClCompile Include="Logger.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
-    <ClCompile Include="Tutorial6.cpp">
-      <Filter>Source Files\Application</Filter>
-    </ClCompile>
     <ClCompile Include="Pyramid.cpp">
       <Filter>Source Files\Component\Mesh</Filter>
     </ClCompile>
@@ -240,20 +231,8 @@
     <ClCompile Include="LampBehaviour.cpp">
       <Filter>Source Files\Component</Filter>
     </ClCompile>
-    <ClCompile Include="Tutorial5.cpp">
-      <Filter>Source Files\Application</Filter>
-    </ClCompile>
-    <ClCompile Include="Tutorial4.cpp">
-      <Filter>Source Files\Application</Filter>
-    </ClCompile>
-    <ClCompile Include="Tutorial3.cpp">
-      <Filter>Source Files\Application</Filter>
-    </ClCompile>
     <ClCompile Include="Lamp.cpp">
       <Filter>Source Files\Component\Mesh</Filter>
-    </ClCompile>
-    <ClCompile Include="Tutorial7.cpp">
-      <Filter>Source Files\Application</Filter>
     </ClCompile>
     <ClCompile Include="TCube.cpp">
       <Filter>Source Files\Component\Mesh</Filter>
@@ -395,12 +374,6 @@
     <ClInclude Include="DrawTask.h">
       <Filter>Header Files\Tasks</Filter>
     </ClInclude>
-    <ClInclude Include="T3DTest.h">
-      <Filter>Header Files\Application</Filter>
-    </ClInclude>
-    <ClInclude Include="Tutorial1.h">
-      <Filter>Header Files\Application</Filter>
-    </ClInclude>
     <ClInclude Include="DiagMessageTask.h">
       <Filter>Header Files\Tasks</Filter>
     </ClInclude>
@@ -455,9 +428,6 @@
     <ClInclude Include="Logger.h">
       <Filter>Header Files\Miscellaneous</Filter>
     </ClInclude>
-    <ClInclude Include="Tutorial6.h">
-      <Filter>Header Files\Application</Filter>
-    </ClInclude>
     <ClInclude Include="Pyramid.h">
       <Filter>Header Files\Component\Mesh</Filter>
     </ClInclude>
@@ -470,20 +440,8 @@
     <ClInclude Include="LampBehaviour.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
-    <ClInclude Include="Tutorial5.h">
-      <Filter>Header Files\Application</Filter>
-    </ClInclude>
-    <ClInclude Include="Tutorial4.h">
-      <Filter>Header Files\Application</Filter>
-    </ClInclude>
-    <ClInclude Include="Tutorial3.h">
-      <Filter>Header Files\Application</Filter>
-    </ClInclude>
     <ClInclude Include="Lamp.h">
       <Filter>Header Files\Component\Mesh</Filter>
-    </ClInclude>
-    <ClInclude Include="Tutorial7.h">
-      <Filter>Header Files\Application</Filter>
     </ClInclude>
     <ClInclude Include="TCube.h">
       <Filter>Header Files\Component\Mesh</Filter>
