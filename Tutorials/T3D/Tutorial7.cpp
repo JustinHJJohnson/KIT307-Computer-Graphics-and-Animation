@@ -57,14 +57,14 @@ bool Tutorial7::init() {
 	green->setDiffuse(0, 1, 0, 1);
 
 	// Textures
-	Texture* cratetex = new Texture("Resources/crate013jc.jpg", true, true);
+	Texture* cratetex = new Texture("Resources/crate013jc.png", true, true);
 	renderer->loadTexture(cratetex);
 	Material* cratemat = renderer->createMaterial(Renderer::PR_OPAQUE);
 	cratemat->setTexture(cratetex);
 
 	Texture* barreltex = new Texture("Resources/ExplosiveBarrel.jpg", true, true);
 	renderer->loadTexture(barreltex);
-	Material* barrelmat = renderer->createMaterial(Renderer::PR_OPAQUE);
+	Material* barrelmat = renderer->createMaterial(Renderer::PR_TRANSPARENT);
 	barrelmat->setTexture(barreltex);
 
 	// Cyclinder

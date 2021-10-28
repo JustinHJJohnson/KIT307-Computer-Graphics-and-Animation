@@ -8,14 +8,8 @@
 //
 // Main entry point. Creates and runs a T3DApplication
 
-#include "T3DTest.h"
-#include "Tutorial1.h"
-#include "Tutorial3.h"
-#include "Tutorial4.h"
-#include "Tutorial5.h"
-#include "Tutorial6.h"
-#include "Tutorial7.h"
-#include "ShaderTest.h"
+#include "Exam2D.h"
+#include "Exam3D.h"
 #include "GLTestApplication.h"
 
 #ifdef main
@@ -26,7 +20,10 @@
 using namespace T3D;
 
 int main(int argc, char* argv[]) {
-	T3DApplication *theApp = new Tutorial7();
+	// Dish ran away with the spoon
+	//T3DApplication *theApp = new Exam2D();
+	// Cow jumped over the moon
+	T3DApplication* theApp = new Exam3D();
 
 	theApp->run();
 	delete theApp;
